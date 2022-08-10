@@ -1,6 +1,9 @@
 from django.shortcuts import render, HttpResponse
+from .models import Computer
 
 
 # Create your views here.
 def store(request):
-    return HttpResponse('<h1>400</h1>')
+    computers = Computer.objects.all()
+
+    return render(request, 'store/store.html', locals())

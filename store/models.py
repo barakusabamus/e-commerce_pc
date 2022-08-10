@@ -4,7 +4,7 @@ from django.db import models
 # Create your models here.
 class Computer(models.Model):
     title = models.CharField(max_length=30, null=True)
-    description = models.TimeField(null=True)
+    description = models.TextField(null=True)
     gpu = models.CharField(max_length=30, null=True)
     cpu = models.CharField(max_length=30, null=True)
     ram = models.CharField(max_length=30, null=True)
