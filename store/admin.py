@@ -7,8 +7,8 @@ class PhotoInline(admin.TabularInline):
 
 
 class ComputeAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'gpu', 'cpu', 'price', )
-    list_display_links = ('id', 'title', 'gpu', 'cpu', 'price',)
+    list_display = ('id', 'title', 'price', 'gpu', 'cpu',)
+    list_display_links = ('id', 'title', 'price', 'gpu', 'cpu',)
     inlines = [PhotoInline]
 
 
