@@ -3,4 +3,6 @@ from . import views
 
 urlpatterns = [
     path('', views.store),
+    path('computer/<int:computer_id>', views.display_computer),
+    path('cart', views.cart)
 ]
