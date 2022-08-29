@@ -12,5 +12,10 @@ class ComputeAdmin(admin.ModelAdmin):
     inlines = [PhotoInline]
 
 
+class OrderAdmin(admin.ModelAdmin):
+    list_display = ('id', 'date')
+
+
 admin.site.register(models.Computer, ComputeAdmin)
 admin.site.register(models.Photo)
+admin.site.register(models.Order, OrderAdmin)

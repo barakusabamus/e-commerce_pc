@@ -25,3 +25,10 @@ class Photo(models.Model):
     photo = models.ImageField(upload_to='photos/%Y/%m/%d/')
     is_active = models.BooleanField(default=False, null=True)
     is_main = models.BooleanField(default=False)
+
+
+class Order(models.Model):
+    computer = models.ForeignKey('Computer', on_delete=models.CASCADE, null=True)
+    quantity = models.IntegerField(null=True)
+    phone = models.CharField(max_length=12, null=True)
+    date = models.DateField(auto_now=True, null=True)
