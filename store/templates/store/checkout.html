@@ -1,0 +1,17 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block body %}
+    <div class="container  ">
+        <form action="cart" class="checkout" method="post" >
+            {% csrf_token %}
+
+            
+            <input type="tel" data-tel-input maxlength="18" placeholder="Телефон" name="phone" id="phone" value="">
+            
+            
+        </form>
+        
+    </div>
+    <script src="{% static 'store/js/checkout.js' %}"></script>
+{% endblock %}

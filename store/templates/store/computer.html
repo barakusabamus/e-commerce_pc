@@ -1,0 +1,44 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+<head>
+  
+</head>
+
+{% block body %}
+  
+  <div class="container shop-item   " data-id="id-{{ computer.id }}" style="display: flex " >
+    
+    
+    {% for i in photos %}
+      
+      <img width="470px" src="{{ i.photo.url }}" class="shop-item-image" alt="">
+    {% endfor %}
+      
+    
+    
+    <div>
+      <h1 class="name_pc" >{{ computer.title }}</h1>
+
+      <p>{{ computer.description }}</p>
+
+      <div  class="computer_cart_price">
+        <h2 class="price">{{ computer.price }}₽</h2>
+        <button class="btn_cart btn" type="button">в корзину</button>
+      </div>
+
+    </div>
+
+    
+
+    
+
+  </div>
+  <script src="{% static 'store/js/cart.js' %}"></script>
+
+
+{% endblock %}
+
+
+
+

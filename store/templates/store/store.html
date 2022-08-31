@@ -1,0 +1,105 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block body %}
+<body>
+    <div style="display: flex;flex-wrap: wrap; " class="container" >
+        {% for photo in photos %}
+        
+            <div class="card ">
+                <a href="/computer/{{ photo.computer.id }}">
+                    <h2 class="name_pc">
+                        <span>{{ photo.computer.title }}</span>
+                    </h2>
+                
+
+                    <img width="300px" src="{{ photo.photo.url }}" alt="">
+                </a>
+
+                <h3 class="price">{{ photo.computer.price }} ₽</h3>
+                
+                    
+                    
+                    
+                    <div class="components_pc"> 
+                        <img class="icon" src="{% static 'store/icon/gpu.png' %}" alt="">
+                        <div class="item_component">
+                            <div>видеокарта</div>
+                            <p>{{ photo.computer.gpu }}</p>
+                        </div>
+                    </div>
+            
+                    <div class="components_pc"> 
+                        <img class="icon" src="{% static 'store/icon/cpu.png' %}" alt="">
+                        <div class="item_component">
+                            <div>процессор</div>
+                            <p>{{ photo.computer.cpu }}</p>
+                        </div>
+                    </div>
+                
+                    <div class="components_pc"> 
+                        <img class="icon" src="{% static 'store/icon/ram.png' %}" alt="">
+                        <div class="item_component">
+                            <div>оперативная память</div>
+                            <p>{{ photo.computer.ram }}</p>
+                        </div>
+                    </div>
+                
+                    <div class="components_pc"> 
+                        <img class="icon" src="{% static 'store/icon/mb.png' %}" alt="">
+                        <div class="item_component">
+                            <div>материнская плата</div>
+                            <p>{{ photo.computer.mother_board }}</p>
+                        </div>
+                    </div>
+                
+                    <div class="components_pc"> 
+                        <img class="icon" src="{% static 'store/icon/ssd.png' %}" alt="">
+                        <div class="item_component">
+                            <div>SSD накопитель</div>
+                            <p>{{ photo.computer.ssd }}</p>
+                        </div>
+                    </div>
+                
+                    <div class="components_pc"> 
+                        <img class="icon" src="{% static 'store/icon/hdd.png' %}" alt="">
+                        <div class="item_component">
+                            <div>жесткий диск</div>
+                            <p>{{ photo.computer.hdd }}</p>
+                        </div>
+                    </div>
+                
+                    <div class="components_pc"> 
+                        <img class="icon" src="{% static 'store/icon/psu.png' %}" alt="">
+                        <div class="item_component">
+                            <div>блок питания</div>
+                            <p>{{ photo.computer.psu }}</p>
+                        </div>
+                    </div>
+                
+                    <div class="components_pc"> 
+                        <img class="icon" src="{% static 'store/icon/cooling.png' %}" alt="">
+                        <div class="item_component">
+                            <div>охлаждение</div>
+                            <p>{{ photo.computer.cooling }}</p>
+                        </div>
+                    </div>
+
+                    
+            
+            </div>
+        
+        {% endfor %}
+    </div>
+   
+    <div>
+        {% for photo in photos %}
+
+            <!-- <h1>{{ photo.photo.url }}</h1> -->
+            <!-- <img src="{{ photo.photo.url }}" alt=""> -->
+
+        {% endfor %}
+    </div>
+    
+</body>
+{% endblock %}
