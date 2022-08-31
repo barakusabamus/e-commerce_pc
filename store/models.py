@@ -3,7 +3,7 @@ from django.db import models
 
 # Create your models here.
 class Computer(models.Model):
-    title = models.CharField(max_length=30, null=True)
+    title = models.CharField(max_length=30)
     description = models.TextField(null=True)
     gpu = models.CharField(max_length=30, null=True)
     cpu = models.CharField(max_length=30, null=True)
@@ -28,7 +28,15 @@ class Photo(models.Model):
 
 
 class Order(models.Model):
-    computer = models.ForeignKey('Computer', on_delete=models.CASCADE, null=True)
-    quantity = models.IntegerField(null=True)
+    total_price = models.DecimalField(max_digits=10, decimal_places=2, null=True)
     phone = models.CharField(max_length=12, null=True)
-    date = models.DateField(auto_now=True, null=True)
+    time = models.DateTimeField(auto_now=True, null=True)
+
+
+class ProductInOrder(models.Model):
+    order = models.ForeignKey('Order', blank=True, null=True,  on_delete=models.CASCADE)
+    computer = models.ForeignKey('Computer', blank=True, null=True,  on_delete=models.CASCADE)
+    quantity = models.IntegerField(default=1, null=True)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    total_price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    created = models.DateTimeField(auto_now_add=True, auto_now=False)
