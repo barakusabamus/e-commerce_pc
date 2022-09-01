@@ -1,7 +1,6 @@
 from django.shortcuts import render, HttpResponse
 
 from .models import Computer, Photo, Order
-from .forms import Checkout
 from .orders import *
 
 
