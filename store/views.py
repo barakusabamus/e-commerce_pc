@@ -6,13 +6,13 @@ from .orders import *
 
 def store(request):
     computers = Computer.objects.all()
-    photos = Photo.objects.filter(is_main=True)
+    photos = Photo.objects.filter(is_main=True, is_active=True)
     return render(request, 'store/store.html', locals())
 
 
 def display_computer(request, computer_id):
     computer = Computer.objects.get(id=computer_id)
-    photos = Photo.objects.filter(computer=computer_id)
+    photos = Photo.objects.filter(computer=computer_id, is_active=True)
     return render(request, 'store/computer.html', locals())
 
 
