@@ -1,4 +1,4 @@
-.card{
+.card-store{
     margin: 10px;
     width: 300px;
     background-color: #131111;
@@ -24,7 +24,7 @@ p{
 
 .price{
     color: #EAEAEA;
-    margin-left: 60px;
+    margin-left: 25%;
 }
 
 .nav-link{
@@ -41,14 +41,14 @@ a{
 }
 
 .icon{
-    width: 45px;
-    height: 45px;
-    margin-left: 5px;
+    width: 15%;
+    height: 75%;
+    margin-left: 3%;
     
 }
 
 .item_component{
-    padding-left: 5px;
+    padding-left: 2%;
 }
 
 .computer_cart_price{
@@ -83,15 +83,13 @@ a{
 
 .cart-row h3{
     color: #EAEAEA;
-    padding: 120px;
+    /* padding: 2px; */
+    margin-left: 200px;
+    margin-top: 50px;
     
 }
 
-.cart h1{
-    color: #4268ED;
-    padding-left: 571px;
-    padding-top: 58px;
-}
+
 
 .cart-item{
     color: #EAEAEA;
@@ -105,19 +103,6 @@ a{
 .cart-item img{
     margin-left: 267px ;
 }
-
-.item{
-    margin-top: -95px;
-}
-
-.item-cart{
-    display: flex;
-    /* margin-top: 100px; */
-    padding: 50px;
-    margin-left: -60px ;
-}
-
-
 
 .quantity{
     margin: 1px;
@@ -145,4 +130,12 @@ a{
     padding: 10px;
     margin-top: -8px;
     margin-left: 9px;
+}
+
+.card-body{
+    background-color: #131111;
+}
+
+.card{
+    --bs-card-border-color: none
 }

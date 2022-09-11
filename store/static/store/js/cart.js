@@ -32,37 +32,47 @@ window.addEventListener('click', function(event) {
 
 
 })
-// отрисоавка корзины 
+// отрисоавка товара в  корзине
 function showCart(){
     
 
         for(i in cart){
             if(parseInt(cart[i].quantity) != 0 & cart[i].id != undefined){
 
-
                 const cartItemHTML = `
-                    <div data-id="${cart[i].id}" class="item-cart">  
-                        <div class="item" data-id="${cart[i].id}">
-                            <img class="cart-item-image" src="${cart[i].imgSrc}" width="100" height="100">
-                            <h3  >${cart[i].title}</h3>
+                <div data-id="${cart[i].id}" class="card rounded-3 mb-4 item-cart">
+                        <div class="card-body p-4 item data-id="${cart[i].id}"">
+                          <div class="row d-flex justify-content-between align-items-center">
+                            <div class="col-md-2 col-lg-2 col-xl-2">
+                              <img src="/photos/photos/2022/09/09/dragon-1-600x600.jpeg" style="margin-left: 0px ;" class="img-fluid rounded-3" >
+                            </div>
+                            <div class="col-md-3 col-lg-3 col-xl-3">
+                              <p class="lead fw-normal mb-2">${cart[i].title}</p>
+                              
+                            </div>
+                            <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                                <button class="minus btn" data-id="${cart[i].id}">-</button>
+              
+                              <h2 class="quantity">${cart[i].quantity}</h2>
+              
+                              <button class="plus btn"  data-id="${cart[i].id}">+</button>
+                            </div>
+                            <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                              <h5 class="mb-0">${ parseInt(cart[i].price) * parseInt(cart[i].quantity)  } ₽</h5>
+                            </div>
+                            <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                                <button class="remove btn" data-id="${cart[i].id}" >❌</button>
+                            </div>
+                          </div>
                         </div>
-                    
-                        <div  class="cart-quantity-item" >
-                        <button class="minus btn" data-id="${cart[i].id}" >-</button> 
-                       
-                            <h2 class="quantity" >${cart[i].quantity}</h2>
-                    <!--        <input  type="text" class="quantity" placeholder inputmode="numeric" min="1" size="2" value="${cart[i].quantity}"  > -->
-                        <button class="plus btn" data-id="${cart[i].id}" >+</button> 
-                        </div>
-                    
-                        <h3 class="cart-price">${ parseInt(cart[i].price) * parseInt(cart[i].quantity)  } ₽</h3>
+                      </div>
+                `
 
-                        <button class="remove btn" data-id="${cart[i].id}" >❌</button>
 
-                    </div>
-                    `
 
                 cartItem.insertAdjacentHTML('beforeend', cartItemHTML )
+
+                
 
             }
         }
