@@ -13,6 +13,8 @@ def store(request):
 def display_computer(request, computer_id):
     computer = Computer.objects.get(id=computer_id)
     photos = Photo.objects.filter(computer=computer_id, is_active=True)
+    second_photos = photos.filter(is_main=False)
+    main_photo = photos.get(is_main=True)
     return render(request, 'store/computer.html', locals())
 
 
