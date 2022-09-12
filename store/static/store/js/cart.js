@@ -58,7 +58,7 @@ function showCart(){
                               <button class="plus btn"  data-id="${cart[i].id}">+</button>
                             </div>
                             <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                              <h5 class="mb-0">${ parseInt(cart[i].price) * parseInt(cart[i].quantity)  } ₽</h5>
+                              <h5 class="mb-0 cart-price">${ parseInt(cart[i].price) * parseInt(cart[i].quantity)  } ₽</h5>
                             </div>
                             <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                                 <button class="remove btn" data-id="${cart[i].id}" >❌</button>
@@ -183,7 +183,7 @@ function displayCheckoutButton(){
         checkoutWrapper.insertAdjacentHTML('beforeend', buttonCheckoutHTML )
     }else if ( quantity == 0 ){
         buttonCheckout.remove()
-        console.log('корзина пуста')
+        // console.log('корзина пуста')
     }
 
     

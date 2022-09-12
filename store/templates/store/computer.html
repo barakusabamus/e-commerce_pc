@@ -10,28 +10,34 @@
   <div class="container shop-item   " data-id="id-{{ computer.id }}" style="display: flex " >
     
     
-    {% for i in photos %}
-      
-      <img width="470px" src="{{ i.photo.url }}" class="shop-item-image" alt="">
-    {% endfor %}
-      
-    
-    
-    <div>
-      <h1 class="name_pc" >{{ computer.title }}</h1>
-
-      <p>{{ computer.description }}</p>
-
-      <div  class="computer_cart_price">
-        <h2 class="price">{{ computer.price }}₽</h2>
-        <button class="btn_cart btn" type="button">в корзину</button>
+    <div class="row">
+      <div class="col-md-6">
+          <div class="images p-3">
+              <div class="text-center p-4"> <img id="main-image" class="shop-item-image" src="{{ main_photo.photo.url }}" width="250"> </div>
+            {% for i in second_photos %}  
+              <div class="thumbnail text-center"> <img onclick="change_image(this)" src="https://i.imgur.com/Rx7uKd0.jpg" width="70"> <img onclick="change_image(this)" src="https://i.imgur.com/Dhebu4F.jpg" width="70"> </div>
+            {% endfor %}
+            </div>
       </div>
-
-    </div>
-
-    
-
-    
+      <div class="col-md-6">
+          <div class="product p-4">
+              
+              <div class="mt-4 mb-3"> 
+                  <h5 class="text-uppercase name_pc">{{ computer.title }}</h5>
+                  <div class="price d-flex flex-row align-items-center"> <span class="act-price price">{{ computer.price }} ₽ </span>
+                      <div class="ml-2"> <small class="dis-price"></small> </div>
+                  </div>
+              </div>
+              <p class="about">Игровой компьютер на видеокарте GeForce® GTX 1650, процессоре Intel Core i3 и 8 ГБ оперативной памяти. Играйте на высоких настройках и разрешении Full HD в самые популярные игры.</p>
+              
+              <div class="cart mt-4 align-items-center">
+                 <button type="button" class="btn btn-danger text-uppercase mr-2 px-4"> в корзину</button>
+                  <i class="fa fa-heart text-muted"></i> 
+                  <i class="fa fa-share-alt text-muted"></i>
+                </div>
+          </div>
+      </div>
+    </div>  
 
   </div>
   <script src="{% static 'store/js/cart.js' %}"></script>

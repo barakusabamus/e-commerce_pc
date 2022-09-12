@@ -24,6 +24,11 @@ p{
 
 .price{
     color: #EAEAEA;
+    /* margin-left: 25%; */
+}
+
+.price-store{
+    color: #EAEAEA;
     margin-left: 25%;
 }
 
