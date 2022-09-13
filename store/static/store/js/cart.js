@@ -16,7 +16,7 @@ window.addEventListener('click', function(event) {
                 id : card.dataset.id,
                 imgSrc : card.querySelector('.shop-item-image').getAttribute('src'),
                 title : card.querySelector('.name_pc').innerText,
-                price : card.querySelector('.price').innerText,
+                price : parseInt(card.querySelector('.price').innerText),
                 quantity : 1
             })   
 
