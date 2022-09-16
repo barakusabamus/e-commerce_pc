@@ -144,3 +144,7 @@ a{
 .card{
     --bs-card-border-color: none
 }
+
+.footer {
+    margin-top: 47%;
+}
