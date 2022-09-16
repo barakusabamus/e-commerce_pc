@@ -2,33 +2,60 @@ const cartItem = document.querySelector('.cart-item')
 
 let cart = JSON.parse (localStorage.getItem ("cart")) || []
 
+
 // добваление товара в корзину
-window.addEventListener('click', function(event) {
+window.addEventListener('click', async function(event) {
     if(event.target.hasAttribute('type')) {
         
-        const card = event.target.closest('.shop-item')
+    const card = event.target.closest('.shop-item')
 
-        const search = cart.find((x) => x.id === card.dataset.id)
+    const search = cart.find((x) => x.id === card.dataset.id)
+    
+    // если товара нет в корзине, запросить данный с сервера
+    if(search === undefined ){
 
-        if(search === undefined ){
+        let productId = ''
 
-            cart.push({
-                id : card.dataset.id,
-                imgSrc : card.querySelector('.shop-item-image').getAttribute('src'),
-                title : card.querySelector('.name_pc').innerText,
-                price : parseInt(card.querySelector('.price').innerText),
-                quantity : 1
-            })   
-
+        for (let char of card.dataset.id ){
+            if (char != 'i' && char != 'd' && char != '-'){
+                
+                productId = productId + char
+            }
         }
-        else{    
-            search.quantity += 1
-        }
-        
-        localStorage.setItem ('cart', JSON.stringify(cart))
-        // sessionStorage.setItem('cart', JSON.stringify(cart) )
-      
+
+        url = `/api/computers/${productId}`
+
+        let res = await fetch(url)
+        .then((response) =>  {
+        return response.json()
+        })
+        .then((data) => {
+            let info = {'price': data[0]['price'],
+                        'id' : data[0]['id'],
+                        'title': data[0]['title']
+            }
+
+            return info
+            
+        })
+
+        cart.push({
+            id : `id-${res['id']}`,
+            imgSrc : card.querySelector('.shop-item-image').getAttribute('src'),
+            title : res['title'],
+            price : res['price'],
+            quantity : 1
+        })   
+
     }
+    else{    
+        search.quantity += 1
+    }
+    
+    localStorage.setItem ('cart', JSON.stringify(cart))
+    // sessionStorage.setItem('cart', JSON.stringify(cart) )
+    
+}
 
 
 })

@@ -1,6 +1,9 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render
 
-from .models import Computer, Photo, Order
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
+from .models import Computer, Photo
 from .orders import *
 
 
@@ -28,3 +31,10 @@ def checkout(request):
             create_order(request.body)
 
     return render(request, 'store/checkout.html', locals())
+
+
+class DefiniteComputerAPIViews(APIView):
+    def get(self, request, computer_id):
+        definite_computer = Computer.objects.filter(id=computer_id).values()
+
+        return Response(definite_computer)
