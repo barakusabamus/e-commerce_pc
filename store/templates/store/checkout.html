@@ -3,14 +3,20 @@
 
 {% block body %}
     <div class="container  ">
-        <form action="cart" class="checkout" method="post" >
-            {% csrf_token %}
-
+        <form class="checkout needs-validation row gy-3" style="color: whitesmoke;" action="cart" method="post" >{% csrf_token %}
             
-            <input type="tel" data-tel-input maxlength="18" placeholder="Телефон" name="phone" id="phone" value="">
+  
             
             
-        </form>
+            <div class="col-md-3">
+                
+                <input  type="phone" class="form-control" data-tel-input maxlength="18"  placeholder="Телефон" name="phone" id="phone" value="">
+        
+              </div>
+            
+              <hr class="my-4">
+            <button class="w-100 btn btn-primary btn-lg" type="submit">Отправить заявку</button>
+          </form>
         
     </div>
     <script src="{% static 'store/js/checkout.js' %}"></script>

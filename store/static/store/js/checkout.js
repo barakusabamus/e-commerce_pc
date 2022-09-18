@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
         // console.log(phone)
 
-        if(phone[0] == 8 || phone[0] == 7){
+        if(phone[0] == 8 || phone[0] == 7 || phone[0] == null){
             if(phone.length != 11 ){
                 event.preventDefault()
                 return
